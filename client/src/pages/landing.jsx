@@ -1,11 +1,11 @@
 import Navbar from "../components/Navbar";
-import Hero from "../components/Hero";
 
-export default function Landing() {
+function Landing() {
   return (
     <>
       <Navbar />
-      <Hero />
     </>
   );
 }
+
+export default Landing;
