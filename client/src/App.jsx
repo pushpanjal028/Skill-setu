@@ -6,6 +6,9 @@ import Register from "./pages/Register";
 import Profile from "./pages/Profile";
 import SkillAnalysis from "./pages/SkillAnalysis";
 import Opportunities from "./pages/Opportunities";
+
+
+
 function App() {
   return (
     <Routes>
@@ -21,6 +24,7 @@ function App() {
       <Route path="/skill-analysis" element={<SkillAnalysis />} />
       
       <Route path="/opportunities" element={<Opportunities />} />
+
     </Routes>
   );
 }

@@ -5,7 +5,6 @@ import CTA from "../components/CTA";
 import howitswork from "../components/Howitswork";
 import Footer from "../components/Footer";
 import HowItWorks from "../components/Howitswork";
-
 function Landing() {
   return (
     <>
@@ -15,6 +14,7 @@ function Landing() {
       <Features />
       <CTA />
       <Footer />
+      
     </>
   );
 }
