@@ -14,9 +14,10 @@ function Landing() {
       <Features />
       <CTA />
       <Footer />
-      
+
     </>
   );
 }
 
 export default Landing;
+

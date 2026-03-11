@@ -22,17 +22,6 @@ function HowItWorks() {
         <div className="grid md:grid-cols-3 gap-10 mt-14">
 
           {/* Step 1 */}
-          <div className="bg-white p-8 rounded-xl shadow hover:shadow-lg transition text-center">
-            <div className="text-4xl mb-4">👤</div>
-            <h3 className="text-xl font-semibold text-blue-600">
-              Create Profile
-            </h3>
-            <p className="text-gray-600 mt-3">
-              Sign up and build your profile by adding your skills and interests.
-            </p>
-          </div>
-
-          {/* Step 2 - CLICKABLE */}
           <div
             onClick={() => navigate("/skill-analysis")}
             className="bg-white p-8 rounded-xl shadow hover:shadow-lg hover:cursor-pointer transition text-center"
@@ -48,11 +37,10 @@ function HowItWorks() {
             </p>
           </div>
 
-          {/* Step 3 */}
+          {/* Step 2 */}
           <div
             onClick={() => navigate("/opportunities")}
-            className="bg-white p-8 rounded-xl shadow hover:shadow-lg transition text-center cursor-pointer"
-          >
+            className="bg-white p-8 rounded-xl shadow hover:shadow-lg transition text-center cursor-pointer">
             <div className="text-4xl mb-4">💼</div>
 
             <h3 className="text-xl font-semibold text-blue-600">
@@ -63,6 +51,36 @@ function HowItWorks() {
               Discover relevant training programs and job opportunities near you.
             </p>
           </div>
+          {/* Step 3 */}
+          <div
+            onClick={() => navigate("/opportunities")}
+            className="bg-white p-8 rounded-xl shadow hover:shadow-lg transition text-center cursor-pointer">
+            <div className="text-4xl mb-4">👷</div>
+
+            <h3 className="text-xl font-semibold text-blue-600">
+              Blue collars opportunities
+            </h3>
+
+            <p className="text-gray-600 mt-3">
+              Discover relevant training programs and job opportunities near you.
+            </p>
+          </div>
+           {/* Step 4 */}
+
+           <div
+            onClick={() => navigate("/opportunities")}
+            className="bg-white p-8 rounded-xl shadow hover:shadow-lg transition text-center cursor-pointer">
+            <div className="text-4xl mb-4">📊</div>
+
+            <h3 className="text-xl font-semibold text-blue-600">
+            industries demand
+            </h3>
+
+            <p className="text-gray-600 mt-3">
+              Discover relevant training programs and job opportunities near you.
+            </p>
+          </div>
+          
 
         </div>
 

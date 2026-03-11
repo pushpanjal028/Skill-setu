@@ -46,7 +46,6 @@ function SkillAnalysis() {
       <div className="flex-1 bg-gray-100 p-20">
 
         {/* STEP 1 EDUCATION */}
-
         {step === 1 && (
 
           <div>
@@ -74,8 +73,8 @@ function SkillAnalysis() {
                   onClick={() => setEducation(item)}
                   className={`p-5 rounded-xl border cursor-pointer text-lg transition
                   ${education === item
-                    ? "bg-orange-500 text-white shadow-lg scale-105"
-                    : "bg-white hover:shadow-md"}
+                      ? "bg-orange-500 text-white shadow-lg scale-105"
+                      : "bg-white hover:shadow-md"}
                   `}
                 >
                   {item}
@@ -97,97 +96,96 @@ function SkillAnalysis() {
         )}
 
         {/* STEP 2 SKILLS */}
-
         {step === 2 && (
 
-  <div>
+          <div>
 
-    <h2 className="text-3xl font-bold mb-3">
-      Upload Resume & Select Skills
-    </h2>
+            <h2 className="text-3xl font-bold mb-3">
+              Upload Resume & Select Skills
+            </h2>
 
-    <p className="text-gray-500 mb-6">
-      Upload your resume or manually select your skills.
-    </p>
+            <p className="text-gray-500 mb-6">
+              Upload your resume or manually select your skills.
+            </p>
 
-    {/* Resume Upload */}
+            {/* Resume Upload */}
 
-    <div className="bg-white border-2 border-dashed border-gray-300 p-8 rounded-xl text-center hover:border-orange-400 transition">
+            <div className="bg-white border-2 border-dashed border-gray-300 p-8 rounded-xl text-center hover:border-orange-400 transition">
 
-      <p className="font-semibold mb-3">
-        Upload your Resume
-      </p>
+              <p className="font-semibold mb-3">
+                Upload your Resume
+              </p>
 
-      <input
-        type="file"
-        accept=".pdf,.doc,.docx"
-        onChange={(e) => setResume(e.target.files[0])}
-        className="cursor-pointer"
-      />
+              <input
+                type="file"
+                accept=".pdf,.doc,.docx"
+                onChange={(e) => setResume(e.target.files[0])}
+                className="cursor-pointer"
+              />
 
-      {resume && (
-        <p className="text-green-600 mt-2">
-          Uploaded: {resume.name}
-        </p>
-      )}
+              {resume && (
+                <p className="text-green-600 mt-2">
+                  Uploaded: {resume.name}
+                </p>
+              )}
 
-    </div>
+            </div>
 
-    {/* Skills Selection */}
+            {/* Skills Selection */}
 
-    <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-4 mt-8">
 
-      {[
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "React",
-        "Node",
-        "Python",
-        "MongoDB",
-        "AI",
-        "Data Analysis"
-      ].map((skill) => (
+              {[
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "React",
+                "Node",
+                "Python",
+                "MongoDB",
+                "AI",
+                "Data Analysis"
+              ].map((skill) => (
 
-        <div
-          key={skill}
-          onClick={() => toggleSkill(skill)}
-          className={`p-4 rounded-xl border text-center cursor-pointer font-medium transition
+                <div
+                  key={skill}
+                  onClick={() => toggleSkill(skill)}
+                  className={`p-4 rounded-xl border text-center cursor-pointer font-medium transition
           ${skills.includes(skill)
-            ?"bg-orange-500 text-white shadow-md scale-105"
-            : "bg-white hover:shadow-md hover:bg-gray-50"}
+                      ? "bg-orange-500 text-white shadow-md scale-105"
+                      : "bg-white hover:shadow-md hover:bg-gray-50"}
           `}
-        >
-          {skill}
-        </div>
+                >
+                  {skill}
+                </div>
 
-      ))}
+              ))}
 
-    </div>
+            </div>
 
-    <div className="flex justify-between mt-10">
+            <div className="flex justify-between mt-10">
 
-      <button
-        onClick={back}
-        className="text-gray-600"
-      >
-        Back
-      </button>
+              <button
+                onClick={back}
+                className="text-gray-600"
+              >
+                Back
+              </button>
 
-      <button
-        onClick={next}
-        className="bg-orange-500 text-white px-6 py-2 rounded-lg"
-      >
-        Continue →
-      </button>
+              <button
+                onClick={next}
+                className="bg-orange-500 text-white px-6 py-2 rounded-lg"
+              >
+                Continue →
+              </button>
 
-    </div>
+            </div>
 
-  </div>
+          </div>
 
-)}
+        )}
+
         {/* STEP 3 EXPERIENCE */}
-
         {step === 3 && (
 
           <div>
@@ -215,8 +213,8 @@ function SkillAnalysis() {
                   onClick={() => setExperience(item)}
                   className={`p-5 rounded-xl border cursor-pointer text-lg transition
                   ${experience === item
-                    ? "bg-orange-500 text-white shadow-lg"
-                    : "bg-white hover:shadow-md"}
+                      ? "bg-orange-500 text-white shadow-lg"
+                      : "bg-white hover:shadow-md"}
                   `}
                 >
                   {item}
@@ -249,7 +247,6 @@ function SkillAnalysis() {
         )}
 
         {/* STEP 4 CAREER GOALS */}
-
         {step === 4 && (
 
           <div>
@@ -280,8 +277,8 @@ function SkillAnalysis() {
                   onClick={() => setCareer(item)}
                   className={`p-5 rounded-xl border cursor-pointer font-medium transition
                   ${career === item
-                    ? "bg-orange-500 text-white shadow-lg"
-                    : "bg-white hover:bg-gray-50 hover:shadow-md"}
+                      ? "bg-orange-500 text-white shadow-lg"
+                      : "bg-white hover:bg-gray-50 hover:shadow-md"}
                   `}
                 >
                   {item}
@@ -314,7 +311,6 @@ function SkillAnalysis() {
         )}
 
         {/* STEP 5 DASHBOARD */}
-
         {step === 5 && <Dashboard />}
 
       </div>
@@ -326,19 +322,25 @@ function SkillAnalysis() {
 
 export default SkillAnalysis;
 
+
 function Step({ title, active }) {
+
   return (
+
     <div
       className={`p-4 rounded-xl font-medium transition
       ${active
-        ? "bg-orange-500 text-white shadow-lg"
-        : "bg-blue-800 text-gray-200 hover:bg-blue-700"}
+          ? "bg-orange-500 text-white shadow-lg"
+          : "bg-blue-800 text-gray-200 hover:bg-blue-700"}
       `}
     >
       {title}
     </div>
+
   );
 }
+
+
 function Dashboard() {
 
   return (
@@ -373,6 +375,7 @@ function Dashboard() {
 
   );
 }
+
 
 function Card({ title }) {
 

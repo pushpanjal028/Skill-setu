@@ -11,6 +11,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from rapidfuzz import process
 import re
+
+
 app = Flask(__name__)
 CORS(app)
 nlp = spacy.load("en_core_web_md")

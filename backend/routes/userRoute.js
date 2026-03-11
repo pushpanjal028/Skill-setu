@@ -1,5 +1,6 @@
 import express from "express";
-import { loginUser,registerUser, verification } from "../controllers/userController.js";
+import { loginUser,logoutUser,registerUser, verification } from "../controllers/userController.js";
+import { isAuthenticated } from "../middleware/isAuthenticated.js";
 // import { verify } from "jsonwebtoken";
 
 const router = express.Router()
@@ -7,5 +8,6 @@ const router = express.Router()
 router.post('/register', registerUser)
 router.post('/verify', verification)
 router.post('/login', loginUser)
+router.post('/logout', isAuthenticated, logoutUser)
 
 export default router;

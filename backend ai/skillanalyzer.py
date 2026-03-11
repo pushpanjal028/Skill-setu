@@ -3,13 +3,14 @@ import numpy as np
 import re
 from pymongo import MongoClient
 from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask_cors import CORS # pyright: ignore[reportMissingModuleSource]
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import datetime
 from difflib import SequenceMatcher
-from fuzzywuzzy import fuzz
-from nltk.corpus import wordnet
+from fuzzywuzzy import fuzz  # pyright: ignore[reportMissingImports]
+from nltk.corpus import wordnet # type: ignore
+
 app = Flask(__name__)
 CORS(app)
 URI = "mongodb+srv://coder_hack:Sankalp2026@cluster0.slx9flr.mongodb.net/?appName=Cluster0"
