@@ -15,7 +15,7 @@ ai_client = genai.Client(api_key="AIzaSyDM-qrxK7rQ2pVX6czxqEkv9kPD7kkAIhU")
 
 # Adzuna credentials
 ADZUNA_ID = "2111fce7"
-ADZUNA_KEY = "ecabe773bf8e94f9b07aed606f2c459b"
+ADZUNA_KEY = "0506a66df98a15f338bb27892ec294d5"
 
 # MongoDB connection
 URI = "mongodb+srv://coder_hack:Sankalp2026@cluster0.slx9flr.mongodb.net/?appName=Cluster0"
