@@ -9,7 +9,7 @@ import Verify from "./pages/verify";
 import Profile from "./pages/Profile";
 import WorkforceGraphs from "./pages/WorkforceGraph";
 import JobAnalysis from "./pages/jobana";
-
+import Bluecollar from "./pages/Bluecollar";
 
 function App() {
   return (
@@ -34,6 +34,8 @@ function App() {
       <Route path="/workforce-graphs" element={<WorkforceGraphs />} />
 
       <Route path="/jobana" element={<JobAnalysis />} />
+      
+      <Route path="/Bluecollar" element={<Bluecollar />} />
  
        
     </Routes>

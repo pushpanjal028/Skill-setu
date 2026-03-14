@@ -53,7 +53,7 @@ function HowItWorks() {
           </div>
           {/* Step 3 */}
           <div
-            onClick={() => navigate("/opportunities")}
+            onClick={() => navigate("/Bluecollar")}
             className="bg-white p-8 rounded-xl shadow hover:shadow-lg transition text-center cursor-pointer">
             <div className="text-4xl mb-4">👷</div>
 
