@@ -5,13 +5,15 @@ from flask import Flask, request, jsonify
 import json
 import uuid
 import google.genai as genai
-
+from dotenv import load_dotenv
+import os
+load_dotenv()
 app = Flask(__name__)
 
 DATA_FILE = "workers.json"
 
 # Configure Gemini with your API key
-client = genai.Client(api_key="blue_collar")
+client = genai.Client(api_key=os.getenv("BLUE_COLLAR"))
 
 # Load Gemini model (2.5 version)
 # model = client.generative_model("gemini-2.5-flash")
