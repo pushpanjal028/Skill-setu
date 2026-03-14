@@ -1,121 +1,154 @@
-import React, { useEffect, useState } from "react";
-import { Bar, Radar } from "react-chartjs-2";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  RadialLinearScale,
-  BarElement,
-  PointElement,
-  LineElement,
-  Title,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
   Tooltip,
+  CartesianGrid,
+  ResponsiveContainer,
+  PieChart,
+  Pie,
+  Cell,
   Legend
-} from "chart.js";
+} from "recharts";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  RadialLinearScale,
-  BarElement,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
+function WorkforceGraph() {
 
-const WorkforceGraph = () => {
+  const [skills, setSkills] = useState([]);
+  const [userSkills, setUserSkills] = useState([]);
+  const [stats, setStats] = useState([]);
 
-  const [marketData, setMarketData] = useState(null);
-  const [error, setError] = useState(null);
+  useEffect(() => {
 
- useEffect(() => {
-
-  const fetchData = async () => {
-
-    try {
-
-      const res = await fetch(
-        "http://localhost:5001"
-      );
-
-      if (!res.ok) {
-        throw new Error("Server error: " + res.status);
+    axios.get("http://127.0.0.1:5000/get_workforce_graphs", {
+      params: {
+        job_title: "Data Science"
       }
+    })
+    .then((res) => {
 
-      const text = await res.text();
+      console.log("API DATA:", res.data);
 
-      let data;
+      const data = res.data;
 
-      try {
-        data = JSON.parse(text);
-      } catch {
-        console.error("Server returned HTML instead of JSON:", text);
-        throw new Error("Invalid JSON returned from backend");
-      }
+      const skillGraph = data.top_market_skills.map((s) => ({
+        name: s.skill,
+        value: s.frequency
+      }));
 
-      setMarketData(data);
+      const userSkillGraph = data.user_comparison.map((s) => ({
+        name: s.skill,
+        value: s.proficiency_score
+      }));
 
-    } catch (err) {
+      const statGraph = [
+        {
+          name: "Demand Score",
+          value: data.employment_stats.demand_score
+        },
+        {
+          name: "Salary Index",
+          value: data.employment_stats.avg_salary_index
+        }
+      ];
 
-      console.error("Fetch error:", err);
-      setError(err.message);
+      setSkills(skillGraph);
+      setUserSkills(userSkillGraph);
+      setStats(statGraph);
 
-    }
+    })
+    .catch((error) => {
+      console.error("Graph Fetch Error:", error);
+    });
 
-  };
+  }, []);
 
-  fetchData();
-
-}, []);
-
-  const skills = marketData.top_market_skills || [];
-  const comparison = marketData.user_comparison || [];
-
-  const barData = {
-    labels: skills.map(s => s.skill),
-    datasets: [
-      {
-        label: "Market Demand",
-        data: skills.map(s => s.frequency),
-        backgroundColor: "#3b82f6"
-      }
-    ]
-  };
-
-  const radarData = {
-    labels: comparison.map(s => s.skill),
-    datasets: [
-      {
-        label: "Your Skill Level",
-        data: comparison.map(s => s.proficiency_score),
-        backgroundColor: "rgba(59,130,246,0.3)",
-        borderColor: "#3b82f6"
-      }
-    ]
-  };
+  const COLORS = ["#6366F1", "#10B981"];
 
   return (
+    <div className="min-h-screen bg-gray-100 p-10">
 
-    <div className="space-y-10">
+      <h1 className="text-3xl font-bold text-center mb-10">
+        Workforce Analytics Dashboard
+      </h1>
 
-      <div className="bg-white shadow-lg p-6 rounded-xl">
-        <h2 className="text-xl font-bold mb-4">
-          📊 Top Market Skills
+      {/* -------- MARKET SKILLS GRAPH -------- */}
+
+      <div className="bg-white rounded-xl shadow p-6 mb-10 h-[400px]">
+
+        <h2 className="text-xl font-semibold mb-4">
+          Top Market Skills
         </h2>
-        <Bar data={barData} />
+
+        <ResponsiveContainer width="100%" height="90%">
+          <BarChart data={skills}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="value" fill="#6366F1" />
+          </BarChart>
+        </ResponsiveContainer>
+
       </div>
 
-      <div className="bg-white shadow-lg p-6 rounded-xl">
-        <h2 className="text-xl font-bold mb-4">
-          🧠 Your Skills vs Market
+      {/* -------- USER SKILL GRAPH -------- */}
+
+      <div className="bg-white rounded-xl shadow p-6 mb-10 h-[400px]">
+
+        <h2 className="text-xl font-semibold mb-4">
+          Your Skills vs Market
         </h2>
-        <Radar data={radarData} />
+
+        <ResponsiveContainer width="100%" height="90%">
+          <BarChart data={userSkills}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="value" fill="#10B981" />
+          </BarChart>
+        </ResponsiveContainer>
+
+      </div>
+
+      {/* -------- JOB MARKET PIE GRAPH -------- */}
+
+      <div className="bg-white rounded-xl shadow p-6 h-[400px]">
+
+        <h2 className="text-xl font-semibold mb-4">
+          Job Market Strength
+        </h2>
+
+        <ResponsiveContainer width="100%" height="90%">
+          <PieChart>
+
+            <Pie
+              data={stats}
+              dataKey="value"
+              nameKey="name"
+              outerRadius={120}
+              label
+            >
+              {stats.map((entry, index) => (
+                <Cell key={index} fill={COLORS[index]} />
+              ))}
+            </Pie>
+
+            <Tooltip />
+            <Legend />
+
+          </PieChart>
+        </ResponsiveContainer>
+
       </div>
 
     </div>
   );
-};
+}
 
 export default WorkforceGraph;

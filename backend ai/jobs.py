@@ -7,7 +7,7 @@ from pymongo import MongoClient
 from datetime import datetime
 app = Flask(__name__)
 CORS(app)
-ai_client = genai.Client(api_key="AIzaSyAdMhjylWwDJWJH5e0VWip6Si7N98fn8Vw")
+ai_client = genai.Client(api_key="AIzaSyDk3-bPVrlj0zC1gqHO1m0Vq0DU9S6X9tY")
 ADZUNA_ID = "2111fce7"
 ADZUNA_KEY = "0506a66df98a15f338bb27892ec294d5"
 URI = "mongodb+srv://coder_hack:Sankalp2026@cluster0.slx9flr.mongodb.net/?appName=Cluster0"

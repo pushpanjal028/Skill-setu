@@ -11,7 +11,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Gemini client
-ai_client = genai.Client(api_key="AIzaSyDM-qrxK7rQ2pVX6czxqEkv9kPD7kkAIhU")
+ai_client = genai.Client(api_key="AIzaSyDk3-bPVrlj0zC1gqHO1m0Vq0DU9S6X9tY")
 
 # Adzuna credentials
 ADZUNA_ID = "2111fce7"
