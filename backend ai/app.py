@@ -1,11 +1,14 @@
 from flask import Flask, request, jsonify
+import os
+from dotenv import load_dotenv
 from flask_cors import CORS
 from pymongo import MongoClient
 from skillanalyzer import get_ai_generated_required_skills, calculate_user_proficiency
 from datetime import datetime
+load_dotenv()
 app = Flask(__name__)
 CORS(app)
-URI = "mongodb+srv://coder_hack:Sankalp2026@cluster0.slx9flr.mongodb.net/?appName=Cluster0"
+URI = os.getenv("MONGO_DB_URI")
 client = MongoClient(URI)
 db = client['SkillSetuDB']
 collection = db['Skills']
@@ -183,5 +186,3 @@ def get_workforce_graphs():
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
     
-if __name__ == "__main__":
-    app.run(debug=True, port=5000)
