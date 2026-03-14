@@ -19,7 +19,7 @@ function HowItWorks() {
         </div>
 
         {/* Steps */}
-        <div className="grid md:grid-cols-3 gap-10 mt-14">
+        <div className="grid md:grid-cols-2 gap-10 mt-14">
 
           {/* Step 1 */}
           <div
@@ -55,7 +55,7 @@ function HowItWorks() {
           <div
             onClick={() => navigate("/Bluecollar")}
             className="bg-white p-8 rounded-xl shadow hover:shadow-lg transition text-center cursor-pointer">
-            <div className="text-4xl mb-4">👷</div>
+            <div className="text-4xl mb-4 flex-1">👷</div>
 
             <h3 className="text-xl font-semibold text-blue-600">
               Blue collars opportunities

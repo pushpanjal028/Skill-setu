@@ -9,7 +9,7 @@ function Navbar() {
         <h1 className="text-2xl font-bold text-blue-600">
           Skill Setu
         </h1>
-
+        
         {/* Buttons */}
         <div className="flex items-center gap-4">
           <button className="text-gray-700 hover:text-blue-600 font-medium">
